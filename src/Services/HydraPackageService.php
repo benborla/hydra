@@ -20,9 +20,11 @@ class HydraPackageService
         $packageInfo = $this->getHydraPackages()->filter(function ($package) use ($tenant) {
             $packageInfo = current($package);
             return $packageInfo['name'] === $tenant;
-        })->first()[$tenant];
+        })->first()[$tenant] ?? null;
 
-        if (! isset($packageInfo['extra']['hydra']['providers'])) {
+        if ( ! isset($packageInfo['extra']['hydra']['providers'])
+            || is_null($packageInfo)
+        ) {
             throw new InvalidTenantException($tenant);
         }
 
