@@ -11,8 +11,11 @@
         "artisansdk/cqrs": "dev-master",
         "vyuldashev/nova-permission": "^2.11",
         "spatie/laravel-permission": "^4.0",
-        "titasgailius/search-relations": "^1.0"
-
+        "titasgailius/search-relations": "^1.0",
+        "richan-fongdasen/eloquent-blameable": "^1.7",
+        "gregoriohc/laravel-nova-theme-responsive": "^0.8.1",
+        "optimistdigital/nova-tailwind": "^1.1",
+        "david-griffiths/nova-dark-theme": "^1.0"
     },
     "autoload": {
         "files": [
