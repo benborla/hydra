@@ -15,7 +15,8 @@
         "richan-fongdasen/eloquent-blameable": "^1.7",
         "gregoriohc/laravel-nova-theme-responsive": "^0.8.1",
         "optimistdigital/nova-tailwind": "^1.1",
-        "david-griffiths/nova-dark-theme": "^1.0"
+        "david-griffiths/nova-dark-theme": "^1.0",
+        "cloudcake/nova-snowball": "^1.2"
     },
     "autoload": {
         "files": [
