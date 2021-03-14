@@ -1,0 +1,38 @@
+{
+    "name": "benborla/hydra",
+    "description": "A Hydra Package used in Laravel Nova",
+    "keywords": [
+        "laravel",
+        "nova"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1.0",
+        "artisansdk/cqrs": "dev-master",
+        "vyuldashev/nova-permission": "^2.11",
+        "spatie/laravel-permission": "^4.0",
+        "titasgailius/search-relations": "^1.0"
+
+    },
+    "autoload": {
+        "files": [
+            "src/Services/helpers.php"
+        ],
+        "psr-4": {
+            "Benborla\\Hydra\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Benborla\\Hydra\\Providers\\ToolServiceProvider",
+                "Benborla\\Hydra\\Providers\\AuthServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
