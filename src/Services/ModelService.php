@@ -19,18 +19,9 @@ final class ModelService
     /**
      * @return \Illuminate\Support\Collection
      */
-    public function getModelCollection()
-    {
-        return is_null($this->getCachedModels())
-            ? $this->getModels() : $this->getCachedModels();
-    }
-
-    /**
-     * @return \Illuminate\Support\Collection
-     */
     public function getModelNames(bool $toLowerCase = false)
     {
-        return collect($this->getModelCollection())
+        return collect($this->getModels())
             ->map(function ($model) use ($toLowerCase) {
                 $model = $toLowerCase ? \strtolower($model) : $model;
                 return substr($model, strrpos($model, '\\') + 1, strlen($model));
@@ -46,18 +37,14 @@ final class ModelService
     }
 
     /**
-     * @return mixed
-     */
-    private function getCachedModels()
-    {
-        return Cache::get(self::CACHE_MODEL);
-    }
-
-    /**
      * @return null|\Illuminate\Support\Collection
      */
     private function getModels(): ?\Illuminate\Support\Collection
     {
+        if ($cachedModels = Cache::get(self::CACHE_MODEL)) {
+            return $cachedModels;
+        }
+
         $models = collect(get_declared_classes())
             ->filter(function ($class) {
                 return strpos($class, 'Models') !== false

@@ -41,7 +41,7 @@ if (! function_exists('is_main_admin_url')) {
     }
 }
 
-if (! function_exists('current_channel')) {
+if (! function_exists('channel')) {
     function channel() {
         return get_tenant(domain());
     }
